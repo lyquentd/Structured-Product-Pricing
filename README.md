@@ -203,10 +203,10 @@ Here is the raw exposure of the trader/bank per €100 of nominal sold.
 
 ---
 
-## Section 5 — Sensitivity Analysis
+## Step 6 — Sensitivity Analysis
 
 **Status:** ✅ Complete
-**Script:** `src/section5_sensitivity.py`
+**Script:** `src/step6_sensitivity.py`
 **Outputs:** `data/processed/sensitivity_results.md`
 
 We calculate the impact of market movements on the **€2.69** baseline bank margin.
@@ -219,22 +219,22 @@ We calculate the impact of market movements on the **€2.69** baseline bank mar
 | **4. Cap Tightened (59%)** | $K_{{cap}} = 159\\%$ | **€ 2.784** | *€ +0.203* | Lowering the cap helps the margin. The bank sells a tighter call, capturing more premium. |
 | **4. Cap Loosened (61%)** | $K_{{cap}} = 161\\%$ | **€ 2.382** | *€ -0.200* | Raising the cap hurts the margin. The short option is further out-of-the-money, returning less premium. |
 
-### 5.5 Averaging Effect & Basket Effect (Qualitative)
+### 6.1 Averaging Effect & Basket Effect (Qualitative)
 - **Averaging Effect**: The original product likely uses an average of observations in the final months. Averaging mathematically reduces volatility (because an average path is less volatile than a point-to-point path). Lower volatility $\rightarrow$ cheaper option $\rightarrow$ **higher bank margin**.
 - **Basket Effect**: If moving from a single index (Stoxx 50) to a Basket of indices, the imperfect correlation between the basket components lowers the overall volatility of the product compared to a single index. Again, lower volatility = **higher margin** for the bank.
 
 ---
 
-## Section 6 — Secondary Market Pricing
+## Step 7 — Secondary Market Pricing
 
 **Status:** ✅ Complete
-**Script:** `src/section6_secondary_market.py`
+**Script:** `src/step7_secondary_market.py`
 **Outputs:** `data/processed/secondary_market_results.md`
 
 We assume exactly 1 year has passed. The Spot price has stagnated ($S_0 = 3600$). 
 Residual maturity is now **$T = 5$ Years**.
 
-### 6.1 Mid-Price Valuation (1 Year Later)
+### 7.1 Mid-Price Valuation (1 Year Later)
 - **New ZC Rate ($r_5$)**: 4.383%
 - **New ATM Vol**: 27.18%
 - **New Cap Vol (160%)**: 23.50%
@@ -247,7 +247,7 @@ Residual maturity is now **$T = 5$ Years**.
 
 **Observation:** Even though the spot price hasn't moved a single point, the product's true theoretical value surged from its manufacturing cost (€97.31) to **€101.28**. This perfectly proves our Step 5 finding: the product has **Positive Theta**. The pull-to-par effect of the discounted ZC bond completely crushes the time-decay of the 6-year options.
 
-### 6.2 Bid-Ask Impact & Bank Buyback
+### 7.2 Bid-Ask Impact & Bank Buyback
 When a client asks to sell their product back to the bank, the bank quotes a **Bid Price**. To embed an immediate cancellation fee/profit, the bank values the product using worse market conditions:
 - **Funding Penalty**: The bank discounts the ZC bond harder (e.g., +10 to +20 basis points).
 - **Because the product is Short Vega**, the bank will deliberately value the options using a *higher* implied volatility surface (e.g., +2%) to compress the product's value. 
@@ -336,5 +336,9 @@ QUANT PM/
 └── src/
     ├── read_documents.py                ← Reads & summarizes all docs
     ├── payoff_analysis.py               ← Step 1: Payoff formalization
-    └── step2_yield_curve.py             ← Step 2: Yield Curve Bootstrapping
+    ├── step2_yield_curve.py             ← Step 2: Yield Curve Bootstrapping
+    ├── step3_pricing.py                 ← Step 3 & 4: BS Pricing & Margin
+    ├── step5_greeks.py                  ← Step 5: Greek Analysis
+    ├── step6_sensitivity.py             ← Step 6: Sensitivity Analysis
+    └── step7_secondary_market.py        ← Step 7: Secondary Market Pricing
 ```

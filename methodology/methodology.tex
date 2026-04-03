@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tcolorbox}
+
+% --- Colors ---
+\definecolor{navy}{HTML}{002060}
+\definecolor{silver}{HTML}{C0C0C0}
+\definecolor{lightgray}{HTML}{F5F5F5}
+
+% --- Header/Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small\textcolor{gray}{Euro-Shield 6Y Horizon - Project Methodology}}
+\cfoot{\small\textcolor{gray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Title Styling ---
+\titleformat{\section}{\color{navy}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{navy}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% --- Metadata ---
+\title{
+    \vspace{2cm}
+    \textbf{\Huge\color{navy}Project Methodology Documentation} \\
+    \vspace{1cm}
+    {\Large Euro-Shield 6Y Horizon --- Structured Product Pricing} \\
+    \vspace{0.5cm}
+    {\large SKEMA Business School --- Financial Markets \& Investments}
+    \vspace{2cm}
+}
+\author{\textbf{Quentin LY}}
+\date{April 2026}
+
+% --- Document Start ---
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\vspace{2cm}
+\begin{center}
+    \rule{\linewidth}{0.5pt}
+\end{center}
+\vfill
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Overview}
+The objective of this project is to build an institutional-grade pricing and analysis engine for the \textit{Euro-Shield 6Y Horizon} structured product. This document outlines the technical environment, the project architecture, and the modular methodology used to decompose this complex financial instrument into verifiable ``Lego'' blocks.
+
+\section{Technical Environment}
+The project is built using a modern Python ecosystem focused on performance, reproducibility, and clarity.
+
+\subsection{Core Tools}
+\begin{itemize}
+    \item \textbf{Package \& Env Manager:} \texttt{uv} (v0.11+). Used for ultra-fast dependency resolution and virtual environment isolation.
+    \item \textbf{Language:} Python 3.9+.
+    \item \textbf{Documentation/Reporting:} LaTeX and Typst. Used for generating high-quality PDF reports and presentations with minimal overhead.
+\end{itemize}
+
+\subsection{Primary Dependencies}
+\begin{itemize}
+    \item \texttt{pandas}: Data manipulation and results tabulating.
+    \item \texttt{matplotlib}: Institutional-grade technical plots and payoff diagrams.
+    \item \texttt{scipy}: Financial optimization and normal distribution calculations.
+    \item \texttt{pymupdf}: PDF parsing for raw document analysis.
+    \item \texttt{tabulate}: Formatting console outputs for README generation.
+\end{itemize}
+
+\section{Project Structure}
+The repository is organized following a strict data-science pipeline structure to ensure separation of concerns between raw inputs, processed data, and visual assets.
+
+\subsection{Directory Hierarchy}
+\begin{itemize}[label=--]
+    \item \texttt{data/raw/}: Contains original case study documents (PDFs) and market data (Excel files).
+    \item \texttt{data/processed/}: Contains intermediate calculation results (CSV, MD) used to populate the main README.
+    \item \texttt{images/}: Stores all generated plots, diagrams, and ``Lego'' decompositions.
+    \item \texttt{src/}: The core logic directory containing modular scripts for each step of the pricing workflow.
+    \item \texttt{methodology/}: Contains documentation sources (Typst/LaTeX) and final PDF reports.
+\end{itemize}
+
+\subsection{Key Configuration Files}
+\begin{itemize}[label=--]
+    \item \texttt{pyproject.toml}: Defines the project workspace, dependencies, and environment requirements.
+    \item \texttt{README.md}: The central hub of the project, summarizing all findings.
+    \item \texttt{.python-version}: Locks the local environment to a specific Python version.
+\end{itemize}
+
+\section{Methodology: Step-by-Step Build}
+The project follows a 9-step methodology, moving from theoretical payoff formalization to secondary market dynamics.
+
+\subsection{Step 1: Payoff Formalization \& Visualization}
+Decomposition of the product into ``Lego'' blocks: a Long Zero-Coupon Bond, a Long ATM Call, and a Short OTM Call (Cap). Mathematical verification that the sum of these blocks equals the promised product payoff.
+
+\subsection{Step 2: Yield Curve Bootstrapping}
+Conversion of raw market swap rates into a continuous zero-coupon yield curve. This enables precise discounting for the capital guarantee component.
+
+\subsection{Step 3 \& 4: Black-Scholes Pricing \& Margin}
+Implementation of the Black-Scholes model to price the embedded options. The difference between the selling price (€100) and the manufacturing cost determines the bank's upfront margin.
+
+\subsection{Step 5: Greeks \& Risk Exposure}
+Calculation of Delta, Gamma, Vega, Rho, and Theta. This step identifies the product as a ``Short Vega'' and ``Long Theta'' instrument.
+
+\subsection{Step 6: Sensitivity Analysis}
+Stress-testing the bank margin against market shifts (Rates $\pm$ 50bp, Volatility $\pm$ 1\%, Maturity shifts). This quantifies the robustness of the pricing model.
+
+\subsection{Step 7: Secondary Market Pricing}
+Valuation of the product after inception. Analysis of the ``Pull-to-par'' effect and the impact of funding penalties on bid prices during client buybacks.
+
+\section{Conclusion}
+By maintaining a modular codebase in \texttt{src/} and a central documentation hub in \texttt{README.md}, the project ensures that every financial assumption is transparent, verifiable, and reproducible. The use of \texttt{uv} ensures that the technical environment is easy to reconstruct on any machine.
+
+\end{document}
