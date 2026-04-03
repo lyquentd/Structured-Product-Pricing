@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Step 2: Yield Curve Bootstrapping
+Euro-Shield 6Y Horizon — Step 2: Yield Curve Bootstrapping
 ======================================================
 Reads swap rates from Excel, bootstraps ZC discrete and
 continuous rates, and computes Discount Factors for all maturities.
@@ -121,7 +121,7 @@ def main():
     # Save to Markdown table
     md_str = df.to_markdown(index=False, floatfmt=".6f")
     with open(OUTPUT_MD, "w") as f:
-        f.write("# ENERGETIC du CA \u2014 Bootstrapped Yield Curve\n\n")
+        f.write("# Euro-Shield 6Y Horizon \u2014 Bootstrapped Yield Curve\n\n")
         f.write("This table contains the bootstrapped Zero-Coupon rates and Discount Factors based on the swap rates provided in the case study.\n\n")
         f.write(md_str)
 

@@ -28,7 +28,7 @@ plt.plot(s_perf, digital_call, '--', label='Lego 4: Long Digital Call 150%', col
 plt.plot(s_perf, total_payoff, '-', label='Product Total Payoff', color='blue', linewidth=3)
 plt.axvline(1.0, color='black', alpha=0.2, linestyle=':')
 plt.axvline(1.5, color='black', alpha=0.2, linestyle=':')
-plt.title("ENERGETIC du CA - 4-Lego Decomposition")
+plt.title("Euro-Shield 6Y Horizon - 4-Lego Decomposition")
 plt.xlabel("Index Performance (S_T / S_0)")
 plt.ylabel("Redemption % of Nominal")
 plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: '{:.0f}%'.format(y)))

@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Step 5: Greeks Computation
+Euro-Shield 6Y Horizon — Step 5: Greeks Computation
 ===================================================================
 Calculates Delta, Vega, Rho, and Theta for the product.
 """

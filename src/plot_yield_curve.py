@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Yield Curve Bootstrapping Plot
+Euro-Shield 6Y Horizon — Yield Curve Bootstrapping Plot
 ======================================================
 Visualizes the bootstrapped Zero-Coupon rates and Discount Factors from the
 processed CSV file and saves the result as a high-resolution, professional plot.
@@ -78,7 +78,7 @@ def main():
     ax2.text(0.05, 0.05, textstr, transform=ax2.transAxes, fontsize=10, verticalalignment='bottom', bbox=props)
 
     # Overall Layout & Improvements
-    plt.suptitle("ENERGETIC du CA - Yield Curve Calibration & Discounting", fontsize=20, fontweight='bold', y=1.02, color=COLOR_PRIMARY)
+    plt.suptitle("Euro-Shield 6Y Horizon - Yield Curve Calibration & Discounting", fontsize=20, fontweight='bold', y=1.02, color=COLOR_PRIMARY)
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     
     # Save the plot

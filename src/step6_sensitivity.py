@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Section 5: Sensitivity Analysis
+Euro-Shield 6Y Horizon — Step 6: Sensitivity Analysis
 ===================================================================
 Calculates the impact on Bank Margin for different market shifts.
 """

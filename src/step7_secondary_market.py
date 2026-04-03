@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Section 6: Secondary Market Pricing
+Euro-Shield 6Y Horizon — Step 7: Secondary Market Pricing
 ===================================================================
 Calculates the theoretical price of the product exactly 1 year after issuance
 (5 years remaining), assuming the spot price hasn't moved (S=3600).

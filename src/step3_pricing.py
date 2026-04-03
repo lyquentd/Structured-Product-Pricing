@@ -1,5 +1,5 @@
 """
-ENERGETIC du CA — Step 3 & 4: Black-Scholes Pricing & Bank Margin
+Euro-Shield 6Y Horizon — Step 3 & 4: Black-Scholes Pricing & Bank Margin
 ===================================================================
 Prices the components of the product using the bootstrapped ZC continuous
 rate and implied volatilities from the surface. Computes the bank margin.
@@ -112,7 +112,7 @@ def main():
     # ──────────────────────────────────────────────
     # Output markdown doc
     # ──────────────────────────────────────────────
-    md = f"""# ENERGETIC du CA \u2014 Pricing Results
+    md = f"""# Euro-Shield 6Y Horizon \u2014 Pricing Results
 
 ### 1. Market Data Parameters (T = 6)
 - **Risk-free continuous rate ($r_c$)**: {r_continuous:.6f} ({r_continuous*100:.3f}%)
